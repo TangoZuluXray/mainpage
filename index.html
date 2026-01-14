@@ -112,6 +112,58 @@
 </script>
 
     <!-- ✅ 여기까지 추가 -->
+<!-- 기존 페이지 내용은 그대로 두고 여기에 삽입 -->
+<section id="morse-decoder">
+  <p>
+    모스부호를 입력하세요.
+  </p>
+
+  <textarea id="morse-input" placeholder="예: .... . .-.. .-.. --- -..-. ..--.."></textarea>
+  <button onclick="decodeMorse()">변환</button>
+  <textarea id="morse-output" placeholder="결과"></textarea>
+</section>
+
+      
+<script>
+/**
+ * 모스부호 -> 텍스트 디코더
+ * @param {string} input 모스부호 문자열, 공백으로 문자 구분
+ * @returns {string} 변환된 텍스트
+ */
+function morseToText(input) {
+  const morseMap = {
+    ".-": "a", "-...": "b", "-.-.": "c", "-..": "d",
+    ".": "e", "..-.": "f", "--.": "g", "....": "h",
+    "..": "i", ".---": "j", "-.-": "k", ".-..": "l",
+    "--": "m", "-.": "n", "---": "o", ".--.": "p",
+    "--.-": "q", ".-.": "r", "...": "s", "-": "t",
+    "..-": "u", "...-": "v", ".--": "w", "-..-": "x",
+    "-.--": "y", "--..": "z",
+    "-----": "0", ".----": "1", "..---": "2", "...--": "3",
+    "....-": "4", ".....": "5", "-....": "6", "--...": "7",
+    "---..": "8", "----.": "9",
+    "..--..": "?",
+    "-..-.": "/"
+  };
+
+  return input
+    .trim()
+    .split(/\s+/) // 공백으로 문자 구분
+    .map(code => morseMap[code] || "")
+    .join("");
+}
+
+/**
+ * textarea 버튼용 함수
+ */
+function decodeMorse() {
+  const inputEl = document.getElementById("morse-input");
+  const outputEl = document.getElementById("morse-output");
+  if (!inputEl || !outputEl) return;
+
+  outputEl.value = morseToText(inputEl.value);
+}
+</script>
 
   </main>
 
