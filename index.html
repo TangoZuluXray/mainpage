@@ -117,7 +117,7 @@
 
   <textarea id="morse-input" placeholder="입력하세요"></textarea>
   <button onclick="decodeMorse()">변환</button>
-  <textarea id="morse-output" placeholder="결과"></textarea>
+  <textarea id="text-output" placeholder="결과"></textarea>
 </section>
 
       
@@ -155,7 +155,7 @@ function morseToText(input) {
  */
 function decodeMorse() {
   const inputEl = document.getElementById("morse-input");
-  const outputEl = document.getElementById("morse-output");
+  const outputEl = document.getElementById("text-output");
   if (!inputEl || !outputEl) return;
 
   outputEl.value = morseToText(inputEl.value);
