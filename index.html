@@ -53,7 +53,7 @@
 <section style="margin-top: 30px; padding: 20px; background-color: #f9f9f9; border-radius: 10px;">
   <h3>랜덤 문자열 생성기</h3>
   <p>
-    48자리, a-z/A-Z/0-9
+    24자리, a-z/A-Z/0-9
   </p>
   <div id="randomString" style="
     font-family: monospace;
@@ -89,7 +89,7 @@
 
   function generateRandomString() {
     let result = '';
-    for (let i = 0; i < 48; i++) {
+    for (let i = 0; i < 24; i++) {
       result += getSecureRandomChar();
     }
     document.getElementById('randomString').innerText = result;
